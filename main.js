@@ -298,17 +298,36 @@ filterButtons.forEach(button => {
 
 // Contact form
 const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
 
-  const formData = new FormData(contactForm);
-  const data = Object.fromEntries(formData);
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(contactForm);
+    const data = Object.fromEntries(formData);
+
+    const message = `
+New Renovation Enquiry
+
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone || 'Not provided'}
+Project Type: ${data.project}
+
+Message:
+${data.message}
+    `.trim();
+
+    const phoneNumber = '6596309050'; // WhatsApp number without +
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, '_blank');
 
   console.log('Form submitted:', data);
   alert('Thank you for your message! We will get back to you soon.');
   contactForm.reset();
-});
-
+  });
+}
 // Scroll to top
 const scrollTopBtn = document.getElementById('scrollTop');
 scrollTopBtn.addEventListener('click', () => {
