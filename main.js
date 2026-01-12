@@ -296,6 +296,7 @@ filterButtons.forEach(button => {
   });
 });
 
+emailjs.init('BeBy9-0ieErVG1LIT'); 
 // Contact form
 const contactForm = document.getElementById('contactForm');
 
