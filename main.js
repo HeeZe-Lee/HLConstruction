@@ -306,28 +306,31 @@ if (contactForm) {
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData);
 
-    const message = `
-New Renovation Enquiry
+    // Send email using EmailJS
+    emailjs.send(
+      'service_ejhkn9s',   // e.g. service_xxxxx
+      'template_st2qtrf',  // e.g. template_xxxxx
+      {
+        name: data.name,
+        email: data.email,
+        phone: data.phone || 'Not provided',
+        project: data.project,
+        message: data.message
+      }
+    )
+    .then(() => {
+      alert('Thank you for your message! We will get back to you soon.');
+      contactForm.reset();
+    })
+    .catch((error) => {
+      console.error('EmailJS error:', error);
+      alert('Oops! Something went wrong. Please try again.');
+    });
 
-Name: ${data.name}
-Email: ${data.email}
-Phone: ${data.phone || 'Not provided'}
-Project Type: ${data.project}
-
-Message:
-${data.message}
-    `.trim();
-
-    const phoneNumber = '6596309050'; // WhatsApp number without +
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
-    window.open(whatsappURL, '_blank');
-
-  console.log('Form submitted:', data);
-  alert('Thank you for your message! We will get back to you soon.');
-  contactForm.reset();
+    console.log('Form submitted:', data);
   });
 }
+
 // Scroll to top
 const scrollTopBtn = document.getElementById('scrollTop');
 scrollTopBtn.addEventListener('click', () => {
