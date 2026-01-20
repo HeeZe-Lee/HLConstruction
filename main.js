@@ -296,39 +296,49 @@ filterButtons.forEach(button => {
   });
 });
 
-emailjs.init('BeBy9-0ieErVG1LIT'); 
 // Contact form
+
+emailjs.init('BeBy9-0ieErVG1LIT');
+
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData);
 
-    // Send email using EmailJS
-    emailjs.send(
-      'service_ejhkn9s',   // e.g. service_xxxxx
-      'template_st2qtrf',  // e.g. template_xxxxx
-      {
-        name: data.name,
-        email: data.email,
-        phone: data.phone || 'Not provided',
-        project: data.project,
-        message: data.message
-      }
-    )
+    // Honeypot anti-spam
+    if (data.company) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+      return;
+    }
+
+    emailjs.send('service_ejhkn9s', 'template_st2qtrf', {
+      name: data.name,
+      email: data.email,
+      phone: data.phone || 'Not provided',
+      project: data.project,
+      message: data.message
+    })
     .then(() => {
-      console.log('Form submitted:', data);
       alert('Thank you for your message! We will get back to you soon.');
       contactForm.reset();
     })
-    .catch((error) => {
-      console.error('EmailJS error:', error);
+    .catch(() => {
       alert('Oops! Something went wrong. Please try again.');
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
     });
-
+  });
 }
 
 // Scroll to top
