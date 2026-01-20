@@ -320,6 +320,7 @@ if (contactForm) {
       }
     )
     .then(() => {
+      console.log('Form submitted:', data);
       alert('Thank you for your message! We will get back to you soon.');
       contactForm.reset();
     })
@@ -328,10 +329,6 @@ if (contactForm) {
       alert('Oops! Something went wrong. Please try again.');
     });
 
-    console.log('Form submitted:', data);
-    alert('Thank you for your message! We will get back to you soon.'); 
-    contactForm.reset();
-  });
 }
 
 // Scroll to top
