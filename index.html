@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +8,8 @@
   <script type="importmap">
     {
       "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
       }
     }
   </script>
@@ -37,7 +36,7 @@
         <a href="#contact">Contact</a>
       </div>
       <a href="#contact" class="btn-primary btn-sm">Get Quote</a>
-      <button class="menu-toggle" id="menuToggle">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle mobile menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -151,64 +150,93 @@
       </div>
       <div class="filter-buttons">
         <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="ceiling & Partition">Ceiling Works</button>
+        <button class="filter-btn" data-filter="ceiling">Ceiling Works</button>
         <button class="filter-btn" data-filter="renovation">Renovation</button>
-        <button class="filter-btn" data-filter="Demolition">Interior Design</button>
+        <button class="filter-btn" data-filter="interior">Interior Design</button>
       </div>
       <div class="projects-grid">
-        <div class="project-card" data-category="ceiling & Partition">
+        <div class="project-card" data-category="ceiling">
           <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop" alt="Office Ceiling">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop" alt="Office Ceiling" loading="lazy">
             <span class="project-badge">Ceiling Works</span>
           </div>
           <div class="project-content">
             <h3>Office Plaster Ceiling</h3>
-            <p>Modern plaster ceiling installation with integrated lighting for corporate office.</p>
-            <span class="project-location">CBD, Singapore</span>
+            <p>Complete plaster ceiling installation for corporate office space.</p>
+            <span class="project-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Raffles Place, Singapore
+            </span>
           </div>
         </div>
-        <div class="project-card" data-category="Demolition">
+        <div class="project-card" data-category="interior">
           <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=400&fit=crop" alt="Interior Design">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=400&fit=crop" alt="Interior Design" loading="lazy">
             <span class="project-badge">Interior Design</span>
           </div>
           <div class="project-content">
             <h3>Modern Condo Interior</h3>
             <p>Complete interior design with custom partitions and feature ceiling.</p>
-            <span class="project-location">Orchard, Singapore</span>
+            <span class="project-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Orchard, Singapore
+            </span>
           </div>
         </div>
         <div class="project-card" data-category="renovation">
           <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop" alt="Landed Property">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop" alt="Landed Property" loading="lazy">
             <span class="project-badge">Renovation</span>
           </div>
           <div class="project-content">
             <h3>Landed House Renovation</h3>
             <p>Full renovation with waterproofing, metal works, and premium finishes.</p>
-            <span class="project-location">Bukit Timah, Singapore</span>
+            <span class="project-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Bukit Timah, Singapore
+            </span>
           </div>
         </div>
-        <div class="project-card" data-category="ceiling & Partition">
+        <div class="project-card" data-category="ceiling">
           <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=400&fit=crop" alt="Commercial Ceiling">
+            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=400&fit=crop" alt="Commercial Ceiling" loading="lazy">
             <span class="project-badge">Ceiling Works</span>
           </div>
           <div class="project-content">
             <h3>Retail Space Ceiling</h3>
             <p>Custom ceiling design and partition works for retail showroom.</p>
-            <span class="project-location">Marina Bay, Singapore</span>
+            <span class="project-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Marina Bay, Singapore
+            </span>
           </div>
         </div>
-        <div class="project-card" data-category="Demolition">
+        <div class="project-card" data-category="interior">
           <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop" alt="Restaurant Interior">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop" alt="Restaurant Interior" loading="lazy">
             <span class="project-badge">Interior Design</span>
           </div>
           <div class="project-content">
             <h3>Restaurant Renovation</h3>
             <p>Complete F&B interior with custom metal works and feature walls.</p>
-            <span class="project-location">Clarke Quay, Singapore</span>
+            <span class="project-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Clarke Quay, Singapore
+            </span>
+          </div>
+        </div>
+        <div class="project-card" data-category="renovation">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&h=400&fit=crop" alt="HDB Renovation" loading="lazy">
+            <span class="project-badge">Renovation</span>
+          </div>
+          <div class="project-content">
+            <h3>HDB Full Renovation</h3>
+            <p>Complete HDB makeover with modern partitions and ceiling features.</p>
+            <span class="project-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Tampines, Singapore
+            </span>
           </div>
         </div>
       </div>
@@ -249,12 +277,16 @@
             </div>
             <div>
               <h4>Email Us</h4>
-              <p>heonglee777@hotmail.com</p>
+              <p>heonglee@example.com</p>
             </div>
           </div>
         </div>
         <form class="contact-form" id="contactForm">
-          <input type="text" name="company" style="display:none">
+          <!-- Honeypot for spam prevention -->
+          <input type="text" name="company" style="display:none" tabindex="-1" autocomplete="off">
+          
+          <div id="formMessage" class="form-message" style="display:none;"></div>
+          
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your Name</label>
@@ -288,7 +320,17 @@
             <label for="message">Your Message</label>
             <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..." required></textarea>
           </div>
-          <button type="submit" class="btn-primary btn-full">Send Message</button>
+          <button type="submit" class="btn-primary btn-full">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-loader" style="display:none;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" opacity="0.25"/>
+                <path d="M12 2a10 10 0 0 1 10 10" opacity="0.75">
+                  <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"/>
+                </path>
+              </svg>
+            </span>
+          </button>
         </form>
       </div>
     </div>
@@ -327,19 +369,21 @@
         <div class="footer-links">
           <h4>Contact</h4>
           <a href="tel:+6596309050">+65 9630 9050</a>
-          <a href="mailto:heonglee777@hotmail.com">heonglee777@hotmail.com</a>
+          <a href="mailto:heonglee@example.com">heonglee@example.com</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2024 Heong Lee Renovation Construction. All rights reserved.</p>
-        <button class="scroll-top" id="scrollTop">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+        <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"/>
+          </svg>
         </button>
       </div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script type="module" src="main.js"></script>
 </body>
 </html>

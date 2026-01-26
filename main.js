@@ -12,6 +12,7 @@ class ConstructionScene {
     this.clock = new THREE.Clock();
     this.buildings = [];
     this.crane = null;
+    this.isRunning = true;
 
     this.init();
   }
@@ -53,7 +54,9 @@ class ConstructionScene {
     this.addParticles();
 
     window.addEventListener('resize', () => this.onResize());
-    this.animate();
+    
+    // Use setAnimationLoop for better performance
+    this.renderer.setAnimationLoop(() => this.animate());
   }
 
   addLights() {
@@ -189,7 +192,9 @@ class ConstructionScene {
   }
 
   addParticles() {
-    const particlesCount = 100;
+    // Reduce particle count for mobile performance
+    const isMobile = window.innerWidth < 768;
+    const particlesCount = isMobile ? 50 : 100;
     const positions = new Float32Array(particlesCount * 3);
 
     for (let i = 0; i < particlesCount; i++) {
@@ -219,7 +224,7 @@ class ConstructionScene {
   }
 
   animate() {
-    requestAnimationFrame(() => this.animate());
+    if (!this.isRunning) return;
 
     const elapsed = this.clock.getElapsedTime();
 
@@ -242,6 +247,11 @@ class ConstructionScene {
     this.controls.update();
     this.renderer.render(this.scene, this.camera);
   }
+
+  destroy() {
+    this.isRunning = false;
+    this.renderer.dispose();
+  }
 }
 
 // ============================================
@@ -250,11 +260,23 @@ class ConstructionScene {
 
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
+let lastScrollY = window.scrollY;
+let ticking = false;
+
+function updateNavbar() {
   if (window.scrollY > 50) {
     navbar.classList.add('scrolled');
   } else {
     navbar.classList.remove('scrolled');
+  }
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  lastScrollY = window.scrollY;
+  if (!ticking) {
+    window.requestAnimationFrame(updateNavbar);
+    ticking = true;
   }
 });
 
@@ -263,13 +285,15 @@ const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 
 menuToggle.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
+  const isOpen = mobileMenu.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', isOpen);
 });
 
 // Close mobile menu when clicking a link
 mobileMenu.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
   });
 });
 
@@ -285,7 +309,7 @@ filterButtons.forEach(button => {
 
     const filter = button.dataset.filter;
 
-    // Filter projects
+    // Filter projects with smooth transition
     projectCards.forEach(card => {
       if (filter === 'all' || card.dataset.category === filter) {
         card.classList.remove('hidden');
@@ -296,56 +320,89 @@ filterButtons.forEach(button => {
   });
 });
 
-// Contact form
+// ============================================
+// CONTACT FORM WITH IMPROVED UX
+// ============================================
 
+// Initialize EmailJS - IMPORTANT: Move this to a backend service for production
 emailjs.init('BeBy9-0ieErVG1LIT');
 
 const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
 
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
+    
+    // Disable button and show loading state
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
+    btnText.style.display = 'none';
+    btnLoader.style.display = 'inline-block';
 
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData);
 
-    // Honeypot anti-spam
+    // Honeypot anti-spam check
     if (data.company) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Message';
+      resetForm();
       return;
     }
 
-    emailjs.send('service_ejhkn9s', 'template_st2qtrf', {
-      name: data.name,
-      email: data.email,
-      phone: data.phone || 'Not provided',
-      project: data.project,
-      message: data.message
-    })
-    .then(() => {
-      alert('Thank you for your message! We will get back to you soon.');
+    try {
+      await emailjs.send('service_ejhkn9s', 'template_st2qtrf', {
+        name: data.name,
+        email: data.email,
+        phone: data.phone || 'Not provided',
+        project: data.project,
+        message: data.message
+      });
+
+      // Show success message
+      showFormMessage('Thank you for your message! We will get back to you soon.', 'success');
       contactForm.reset();
-    })
-    .catch(() => {
-      alert('Oops! Something went wrong. Please try again.');
-    })
-    .finally(() => {
+      
+    } catch (error) {
+      // Show error message
+      console.error('Form submission error:', error);
+      showFormMessage('Oops! Something went wrong. Please try again or call us directly.', 'error');
+    } finally {
+      resetForm();
+    }
+
+    function resetForm() {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Message';
-    });
+      btnText.style.display = 'inline';
+      btnLoader.style.display = 'none';
+    }
   });
 }
 
+function showFormMessage(message, type) {
+  formMessage.textContent = message;
+  formMessage.className = `form-message form-message-${type}`;
+  formMessage.style.display = 'block';
+  
+  // Auto-hide after 5 seconds
+  setTimeout(() => {
+    formMessage.style.display = 'none';
+  }, 5000);
+}
+
+// ============================================
+// SCROLL FUNCTIONALITY
+// ============================================
+
 // Scroll to top
 const scrollTopBtn = document.getElementById('scrollTop');
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+if (scrollTopBtn) {
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -353,7 +410,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      const navHeight = navbar.offsetHeight;
+      const targetPosition = target.offsetTop - navHeight;
+      window.scrollTo({ 
+        top: targetPosition, 
+        behavior: 'smooth' 
+      });
     }
   });
 });
@@ -363,9 +425,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ============================================
 
 // Initialize Three.js scene
-new ConstructionScene();
+const constructionScene = new ConstructionScene();
 
-// Simple scroll animations
+// Pause animation when tab is not visible for performance
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    constructionScene.isRunning = false;
+  } else {
+    constructionScene.isRunning = true;
+  }
+});
+
+// Simple scroll animations with Intersection Observer
 const observerOptions = {
   threshold: 0.1,
   rootMargin: '0px 0px -50px 0px'
@@ -375,6 +446,8 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('fade-in');
+      // Unobserve after animation to improve performance
+      observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
