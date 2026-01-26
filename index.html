@@ -16,109 +16,151 @@
 </head>
 <body>
 
-<!-- ================= PROJECTS SECTION ================= -->
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#home" class="logo">
+      <span class="logo-text">Heong Lee <span class="accent">Construction</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="btn-primary btn-sm">Get Quote</a>
+  </div>
+</nav>
 
+<!-- Hero -->
+<section id="home" class="hero">
+  <canvas id="canvas3d"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <span class="badge">Trusted Since 2001 - Singapore</span>
+    <h1>Your Trusted <span class="gradient-text">Renovation Partner</span></h1>
+    <p>
+      Over 20 years of excellence in renovation services, specialising in
+      ceiling & partition, commercial works, hacking, and painting.
+    </p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-secondary">Get Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="about">
+  <div class="container">
+    <h2>20+ Years of <span class="gradient-text">Excellence</span></h2>
+    <p>
+      Heong Lee Renovation Construction is a Singapore-registered company
+      established in 2001, providing reliable renovation and construction services.
+    </p>
+
+    <div class="about-cards">
+      <div class="card">
+        <h3>Ceiling & Partition</h3>
+        <p>Plaster ceiling, partition walls, and custom ceiling solutions.</p>
+      </div>
+      <div class="card">
+        <h3>Commercial Works</h3>
+        <p>Office, retail, and F&B commercial renovation projects.</p>
+      </div>
+      <div class="card">
+        <h3>Hacking & Painting</h3>
+        <p>Professional hacking works and durable interior & exterior painting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
 <section id="projects" class="projects">
   <div class="container">
-    <div class="section-header">
-      <span class="badge-small">Our Portfolio</span>
-      <h2>Featured <span class="gradient-text">Projects</span></h2>
-      <p>Explore our diverse portfolio of completed projects.</p>
-    </div>
+    <h2>Featured <span class="gradient-text">Projects</span></h2>
 
-    <!-- 🔁 CHANGED FILTER BUTTONS -->
+    <!-- FILTERS -->
     <div class="filter-buttons">
       <button class="filter-btn active" data-filter="all">All</button>
-
-      <!-- 🔁 CHANGED text -->
-      <button class="filter-btn" data-filter="ceiling">Ceiling &amp; Partition</button>
-
-      <!-- 🔁 CHANGED from Interior Design -->
+      <button class="filter-btn" data-filter="ceiling">Ceiling & Partition</button>
       <button class="filter-btn" data-filter="commercial">Commercial</button>
-
-      <!-- 🆕 ADDED -->
       <button class="filter-btn" data-filter="hacking">Hacking</button>
-
-      <!-- 🆕 ADDED -->
       <button class="filter-btn" data-filter="painting">Painting</button>
     </div>
 
     <div class="projects-grid">
 
-      <!-- 🔁 CHANGED BADGE TEXT -->
       <div class="project-card" data-category="ceiling">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop">
-          <span class="project-badge">Ceiling &amp; Partition</span>
-        </div>
-        <div class="project-content">
-          <h3>Office Plaster Ceiling</h3>
-          <p>Modern plaster ceiling and partition works.</p>
-          <span class="project-location">CBD, Singapore</span>
-        </div>
+        <span class="project-badge">Ceiling & Partition</span>
+        <h3>Office Plaster Ceiling</h3>
+        <p>Plaster ceiling with integrated lighting.</p>
       </div>
 
-      <!-- 🔁 CHANGED CATEGORY + TEXT (Interior → Commercial) -->
       <div class="project-card" data-category="commercial">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=400&fit=crop">
-          <span class="project-badge">Commercial</span>
-        </div>
-        <div class="project-content">
-          <h3>Commercial Office Interior</h3>
-          <p>Commercial renovation with custom partitions.</p>
-          <span class="project-location">Orchard, Singapore</span>
-        </div>
+        <span class="project-badge">Commercial</span>
+        <h3>Commercial Office Renovation</h3>
+        <p>Modern office renovation with partitions.</p>
       </div>
 
-      <!-- ❌ REMOVED: HDB Full Renovation (already done previously) -->
-
-      <!-- 🔁 CHANGED BADGE TEXT -->
-      <div class="project-card" data-category="ceiling">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=400&fit=crop">
-          <span class="project-badge">Ceiling &amp; Partition</span>
-        </div>
-        <div class="project-content">
-          <h3>Retail Space Ceiling</h3>
-          <p>Custom ceiling and partition works.</p>
-          <span class="project-location">Marina Bay, Singapore</span>
-        </div>
+      <div class="project-card" data-category="commercial">
+        <span class="project-badge">Commercial</span>
+        <h3>Restaurant Fit-Out</h3>
+        <p>Full F&B commercial renovation.</p>
       </div>
 
-      <!-- 🆕 ADDED: HACKING -->
       <div class="project-card" data-category="hacking">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?w=600&h=400&fit=crop">
-          <span class="project-badge">Hacking</span>
-        </div>
-        <div class="project-content">
-          <h3>Residential Hacking Works</h3>
-          <p>Wall and tile hacking with proper protection.</p>
-          <span class="project-location">Singapore</span>
-        </div>
+        <span class="project-badge">Hacking</span>
+        <h3>Wall & Tile Hacking</h3>
+        <p>Safe and controlled hacking works.</p>
       </div>
 
-      <!-- 🆕 ADDED: PAINTING -->
       <div class="project-card" data-category="painting">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1599619351208-3e6c839d6828?w=600&h=400&fit=crop">
-          <span class="project-badge">Painting</span>
-        </div>
-        <div class="project-content">
-          <h3>Interior & Exterior Painting</h3>
-          <p>Professional painting with durable finishes.</p>
-          <span class="project-location">Singapore</span>
-        </div>
+        <span class="project-badge">Painting</span>
+        <h3>Interior & Exterior Painting</h3>
+        <p>Professional painting with long-lasting finish.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ================= END PROJECTS ================= -->
+<!-- Contact -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Let’s Build <span class="gradient-text">Together</span></h2>
+
+    <form id="contactForm" class="contact-form">
+      <input type="text" name="company" style="display:none">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number">
+
+      <select name="project" required>
+        <option value="">Select a service</option>
+        <option value="ceiling">Ceiling & Partition</option>
+        <option value="commercial">Commercial</option>
+        <option value="hacking">Hacking</option>
+        <option value="painting">Painting</option>
+      </select>
+
+      <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>© 2024 Heong Lee Renovation Construction. All rights reserved.</p>
+  </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script type="module" src="main.js"></script>
+
 </body>
 </html>
