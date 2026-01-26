@@ -15,330 +15,110 @@
   </script>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <a href="#home" class="logo">
-        <div class="logo-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z"/>
-            <path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/>
-            <path d="M4 15v-3a6 6 0 0 1 6-6h0"/>
-            <path d="M14 6h0a6 6 0 0 1 6 6v3"/>
-          </svg>
-        </div>
-        <span class="logo-text">Heong Lee <span class="accent">Construction</span></span>
-      </a>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <a href="#contact" class="btn-primary btn-sm">Get Quote</a>
-      <button class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-    <a href="#contact" class="btn-primary">Get Quote</a>
+<!-- ================= PROJECTS SECTION ================= -->
+
+<section id="projects" class="projects">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge-small">Our Portfolio</span>
+      <h2>Featured <span class="gradient-text">Projects</span></h2>
+      <p>Explore our diverse portfolio of completed projects.</p>
+    </div>
+
+    <!-- 🔁 CHANGED FILTER BUTTONS -->
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+
+      <!-- 🔁 CHANGED text -->
+      <button class="filter-btn" data-filter="ceiling">Ceiling &amp; Partition</button>
+
+      <!-- 🔁 CHANGED from Interior Design -->
+      <button class="filter-btn" data-filter="commercial">Commercial</button>
+
+      <!-- 🆕 ADDED -->
+      <button class="filter-btn" data-filter="hacking">Hacking</button>
+
+      <!-- 🆕 ADDED -->
+      <button class="filter-btn" data-filter="painting">Painting</button>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- 🔁 CHANGED BADGE TEXT -->
+      <div class="project-card" data-category="ceiling">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop">
+          <span class="project-badge">Ceiling &amp; Partition</span>
+        </div>
+        <div class="project-content">
+          <h3>Office Plaster Ceiling</h3>
+          <p>Modern plaster ceiling and partition works.</p>
+          <span class="project-location">CBD, Singapore</span>
+        </div>
+      </div>
+
+      <!-- 🔁 CHANGED CATEGORY + TEXT (Interior → Commercial) -->
+      <div class="project-card" data-category="commercial">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=400&fit=crop">
+          <span class="project-badge">Commercial</span>
+        </div>
+        <div class="project-content">
+          <h3>Commercial Office Interior</h3>
+          <p>Commercial renovation with custom partitions.</p>
+          <span class="project-location">Orchard, Singapore</span>
+        </div>
+      </div>
+
+      <!-- ❌ REMOVED: HDB Full Renovation (already done previously) -->
+
+      <!-- 🔁 CHANGED BADGE TEXT -->
+      <div class="project-card" data-category="ceiling">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=400&fit=crop">
+          <span class="project-badge">Ceiling &amp; Partition</span>
+        </div>
+        <div class="project-content">
+          <h3>Retail Space Ceiling</h3>
+          <p>Custom ceiling and partition works.</p>
+          <span class="project-location">Marina Bay, Singapore</span>
+        </div>
+      </div>
+
+      <!-- 🆕 ADDED: HACKING -->
+      <div class="project-card" data-category="hacking">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?w=600&h=400&fit=crop">
+          <span class="project-badge">Hacking</span>
+        </div>
+        <div class="project-content">
+          <h3>Residential Hacking Works</h3>
+          <p>Wall and tile hacking with proper protection.</p>
+          <span class="project-location">Singapore</span>
+        </div>
+      </div>
+
+      <!-- 🆕 ADDED: PAINTING -->
+      <div class="project-card" data-category="painting">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1599619351208-3e6c839d6828?w=600&h=400&fit=crop">
+          <span class="project-badge">Painting</span>
+        </div>
+        <div class="project-content">
+          <h3>Interior & Exterior Painting</h3>
+          <p>Professional painting with durable finishes.</p>
+          <span class="project-location">Singapore</span>
+        </div>
+      </div>
+
+    </div>
   </div>
+</section>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <canvas id="canvas3d"></canvas>
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <span class="badge">
-        <span class="badge-dot"></span>
-        Trusted Since 2001 - Singapore
-      </span>
-      <h1>Your Trusted<br><span class="gradient-text">Renovation Partner</span></h1>
-      <p>Over 20 years of excellence in renovation and interior design services. Specializing in partition, ceiling works, waterproofing, metal works, and painting.</p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-secondary">Get Free Quote</a>
-      </div>
-      <div class="stats">
-        <div class="stat">
-          <span class="stat-value">500+</span>
-          <span class="stat-label">Projects Completed</span>
-        </div>
-        <div class="stat">
-          <span class="stat-value">20+</span>
-          <span class="stat-label">Years Experience</span>
-        </div>
-        <div class="stat">
-          <span class="stat-value">BCA</span>
-          <span class="stat-label">CRS Approved</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- ================= END PROJECTS ================= -->
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text">
-          <span class="badge-small">About Us</span>
-          <h2>20+ Years of <span class="gradient-text">Excellence</span></h2>
-          <p>Heong Lee Renovation Construction is a Singapore-registered company established in 2001 with over 20 years of experience in the renovation industry.</p>
-          <p class="text-muted">We specialize in comprehensive renovation services including partition, plaster ceiling, ceiling works, waterproofing, floor tiles, metal works, painting, and interior design services.</p>
-          <div class="achievements">
-            <div class="achievement">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
-              <span>ACRA Registered</span>
-            </div>
-            <div class="achievement">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
-              <span>BCA (CRS) Approved</span>
-            </div>
-            <div class="achievement">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
-              <span>Singapore Based</span>
-            </div>
-            <div class="achievement">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
-              <span>Since 2001</span>
-            </div>
-          </div>
-        </div>
-        <div class="about-cards">
-          <div class="card">
-            <div class="card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-            </div>
-            <h3>Partition & Ceiling Works</h3>
-            <p>Expert installation of partitions, plaster ceilings, and all ceiling-related works.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3>Waterproofing & Tiling</h3>
-            <p>Professional waterproofing solutions and quality floor tile installation.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-            </div>
-            <h3>Metal Works & Painting</h3>
-            <p>Quality metal fabrication and professional painting services for any space.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-small">Our Portfolio</span>
-        <h2>Featured <span class="gradient-text">Projects</span></h2>
-        <p>Explore our diverse portfolio of completed projects that showcase our expertise across various construction sectors.</p>
-      </div>
-      <div class="filter-buttons">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="ceiling">Ceiling Works</button>
-        <button class="filter-btn" data-filter="renovation">Renovation</button>
-        <button class="filter-btn" data-filter="interior">Interior Design</button>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card" data-category="ceiling">
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop" alt="Office Ceiling">
-            <span class="project-badge">Ceiling Works</span>
-          </div>
-          <div class="project-content">
-            <h3>Office Plaster Ceiling</h3>
-            <p>Modern plaster ceiling installation with integrated lighting for corporate office.</p>
-            <span class="project-location">CBD, Singapore</span>
-          </div>
-        </div>
-        <div class="project-card" data-category="interior">
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=400&fit=crop" alt="Interior Design">
-            <span class="project-badge">Interior Design</span>
-          </div>
-          <div class="project-content">
-            <h3>Modern Condo Interior</h3>
-            <p>Complete interior design with custom partitions and feature ceiling.</p>
-            <span class="project-location">Orchard, Singapore</span>
-          </div>
-        </div>
-        <div class="project-card" data-category="renovation">
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop" alt="Landed Property">
-            <span class="project-badge">Renovation</span>
-          </div>
-          <div class="project-content">
-            <h3>Landed House Renovation</h3>
-            <p>Full renovation with waterproofing, metal works, and premium finishes.</p>
-            <span class="project-location">Bukit Timah, Singapore</span>
-          </div>
-        </div>
-        <div class="project-card" data-category="ceiling">
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=400&fit=crop" alt="Commercial Ceiling">
-            <span class="project-badge">Ceiling Works</span>
-          </div>
-          <div class="project-content">
-            <h3>Retail Space Ceiling</h3>
-            <p>Custom ceiling design and partition works for retail showroom.</p>
-            <span class="project-location">Marina Bay, Singapore</span>
-          </div>
-        </div>
-        <div class="project-card" data-category="interior">
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop" alt="Restaurant Interior">
-            <span class="project-badge">Interior Design</span>
-          </div>
-          <div class="project-content">
-            <h3>Restaurant Renovation</h3>
-            <p>Complete F&B interior with custom metal works and feature walls.</p>
-            <span class="project-location">Clarke Quay, Singapore</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-small">Contact Us</span>
-        <h2>Let's Build <span class="gradient-text">Together</span></h2>
-        <p>Ready to start your next construction project? Get in touch with us for a free consultation.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="contact-card">
-            <div class="card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <h4>Visit Us</h4>
-              <p>Singapore<br>ACRA & BCA Registered</p>
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div>
-              <h4>Call Us</h4>
-              <p>+65 9630 9050<br>Mon - Sat: 9am - 6pm</p>
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <h4>Email Us</h4>
-              <p>heonglee777@hotmail.com</p>
-            </div>
-          </div>
-        </div>
-        <form class="contact-form" id="contactForm">
-          <input type="text" name="company" style="display:none">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="John Doe" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="john@example.com" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="+65 9XXX XXXX">
-            </div>
-            <div class="form-group">
-              <label for="project">Project Type</label>
-              <select id="project" name="project" required>
-                <option value="">Select a service</option>
-                <option value="partition">Partition Works</option>
-                <option value="ceiling">Plaster Ceiling</option>
-                <option value="waterproofing">Waterproofing & Tiling</option>
-                <option value="painting">Painting</option>
-                <option value="metalworks">Metal Works</option>
-                <option value="interior">Interior Design</option>
-                <option value="renovation">Full Renovation</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..." required></textarea>
-          </div>
-          <button type="submit" class="btn-primary btn-full">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="#home" class="logo">
-            <div class="logo-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z"/>
-                <path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/>
-                <path d="M4 15v-3a6 6 0 0 1 6-6h0"/>
-                <path d="M14 6h0a6 6 0 0 1 6 6v3"/>
-              </svg>
-            </div>
-            <span class="logo-text">Heong Lee <span class="accent">Construction</span></span>
-          </a>
-          <p>Singapore's trusted renovation contractor since 2001. ACRA registered & BCA (CRS) approved.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Company</h4>
-          <a href="#about">About Us</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="footer-links">
-          <h4>Services</h4>
-          <a href="#about">Partition & Ceiling</a>
-          <a href="#about">Waterproofing</a>
-          <a href="#about">Painting & Metal Works</a>
-        </div>
-        <div class="footer-links">
-          <h4>Contact</h4>
-          <a href="tel:+6596309050">+65 9630 9050</a>
-          <a href="mailto:heonglee777@hotmail.com">heonglee777@hotmail.com</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Heong Lee Renovation Construction. All rights reserved.</p>
-        <button class="scroll-top" id="scrollTop">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
-        </button>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script type="module" src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script type="module" src="main.js"></script>
 </body>
 </html>
